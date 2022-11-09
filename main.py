@@ -8,11 +8,9 @@ I2C_ADDR = 0x27
 totalRows = 4
 totalColumns = 16
 
-i2c = I2C(0, sda=machine.Pin(0), scl=machine.Pin(1), freq=400_000)
-sleep(1)
 print(i2c.scan())
+i2c = I2C(0, sda=machine.Pin(0), scl=machine.Pin(1), freq=400_000)
 lcd = I2cLcd(i2c, I2C_ADDR, totalRows, totalColumns)
-sleep(1)
 
 while True:
     lcd.putstr("Lets Count 0-10!")
